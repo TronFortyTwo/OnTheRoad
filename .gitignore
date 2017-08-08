@@ -1,0 +1,4 @@
+build/
+rootfs/
+rootf.tar.bz2
+*.click
