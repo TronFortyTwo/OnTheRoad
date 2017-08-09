@@ -48,11 +48,7 @@ MainView {
 				Label {
 					width: parent.width
 					wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-<<<<<<< HEAD
 					text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THIS IS STILL ALPHA SOFTWARE! THERE IS NO WARRANTY OF ANY KIND.<br>As far as now the CLI tool is available, while the graphic interface is still work in progress. Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and typing the command 'otr-ssh' to enter the AppArmor free shell, then you can launch the On The Road CLI with 'otr'")
-=======
-					text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THIS IS STILL ALPHA SOFTWARE! THERE IS NO WARRANTY OF ANY KIND.<br>As far as now the CLI tool is available, while the graphic interface is still work in progress. Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and typing the command 'otr'")
->>>>>>> e9e0b47ef938b8fe6f0260b0e2e08b8014035c16
 				}
 
 
@@ -90,21 +86,13 @@ MainView {
 				Label {
 					width: parent.width
 					wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-<<<<<<< HEAD
 					text: i18n.tr("This software is licensed under the GNU GPLv3 license as published by the Free Software Foundation.<br>Copyright (c) 2017 Emanuele Sorce<br>The code is hosted in github: https://github.com/TronFourtyTwo/OnTheRoad")
-=======
-					text: i18n.tr("This software is licensed under the GNU GPLv3 license as published by the Free Software Foundation.<br>Copyright (c) 2017 Emanuele Sorce emanuele.sorce@hotmail.com.<br>The code is hosted in github: https://github.com/TronFourtyTwo/OnTheRoad")
->>>>>>> e9e0b47ef938b8fe6f0260b0e2e08b8014035c16
 				}
 
 				Label {
 					width: parent.width
 					wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-<<<<<<< HEAD
 					text: i18n.tr("There are many way to help this app to improve and get more useful: your feedback is much appreciated, bug listing and feature requests are very important and if you like this app, consider doing a donation to incourage and help the developer.<br>Contact me (Emanuele Sorce):<br>e-mail: emanuele.sorce@hotmail.com<br>Telegram: @TronFourtyTwo")
-=======
-					text: i18n.tr("Want to feedback or contribute to the developing of this tool? Contact me (Emanuele Sorce):<br>email: emanuele.sorce@hotmail.com<br>Telegram: @TronFourtyTwo")
->>>>>>> e9e0b47ef938b8fe6f0260b0e2e08b8014035c16
 				}
 			}
                 }

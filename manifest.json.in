@@ -9,11 +9,7 @@
             "desktop":  "app.desktop"
         }
     },
-<<<<<<< HEAD
-    "version": "0.2.1",
-=======
-    "version": "0.2.0",
->>>>>>> e9e0b47ef938b8fe6f0260b0e2e08b8014035c16
+    "version": "0.2.2",
     "maintainer": "Emanuele Sorce <emanuele.sorce@hotmail.com>",
     "framework" : "ubuntu-sdk-15.04.7"
 }
