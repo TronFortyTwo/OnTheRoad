@@ -60,15 +60,21 @@ MainView {
 						text = i18n.tr("CLI tool is now installed");
 						color = UbuntuColors.green;
 					}
-					color: UbuntuColors.red
 					visible: ! flick.isinstalled
 				}
 
-				Button {
+				Label {
 					id: b
-					text: i18n.tr("CLI tool is installed");
+					text: i18n.tr("<b>CLI tool is installed</b>");
 					color: UbuntuColors.green
 					visible: flick.isinstalled
+				}
+
+				Label {
+					id: d
+					visible: false
+					text: i18n.tr("<b>CLI tool is now updated</b>")
+					color: UbuntuColors.green
 				}
 
 				Button {
@@ -78,8 +84,8 @@ MainView {
 					visible: flick.isinstalled && !flick.isupdated
 					onClicked: {
 						Template.exec("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh");
-						text = i18n.tr("CLI tool is now updated");
-						color = UbuntuColors.green;
+						visible = false
+						d.visible = true
 					}
 				}
 

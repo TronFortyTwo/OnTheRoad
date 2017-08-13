@@ -57,5 +57,6 @@ echo "NOW YOU ARE INSIDE THE APPARMOR-FREE SHELL"
 echo
 echo "Now you can run 'otr'."
 echo "You can go back to the normal shell with 'exit'"
+echo "------------------------------------------"
 echo
 ssh localhost

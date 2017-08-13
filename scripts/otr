@@ -202,6 +202,7 @@ do
 			echo "$contouse"
 			echo
 			echo "1) Open a bourne again shell (BASH)"
+			echo "2) Libertine launch"
 			echo
 			echo "3) Back"
 			echo
@@ -211,6 +212,11 @@ do
 			if [ "$input2" == "1" ]; then
 				clear
 				libertine-container-manager exec -i $contouse -c /bin/bash
+			fi
+
+			if [ "input2" == "2" ]; then
+				clear
+				libertine-launch -i $contouse
 			fi
 		fi
 	fi
