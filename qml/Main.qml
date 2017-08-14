@@ -83,7 +83,7 @@ MainView {
 					color: UbuntuColors.red
 					visible: flick.isinstalled && !flick.isupdated
 					onClicked: {
-						Template.exec("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh");
+						Template.exec("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh")
 						visible = false
 						d.visible = true
 					}

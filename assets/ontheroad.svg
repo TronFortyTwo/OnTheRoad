@@ -25,7 +25,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.41519968"
+     inkscape:zoom="0.42"
      inkscape:cx="350.43803"
      inkscape:cy="613.98015"
      inkscape:document-units="px"
@@ -52,13 +52,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#ececec"
-       id="rect3370"
-       width="800"
-       height="800"
-       x="-28.901756"
-       y="125.6756" />
+    <g
+       id="g3363"
+       transform="matrix(1.1,0,0,1.1,-43.139314,-49.0085)">
+      <rect
+         y="17.197826"
+         x="-122.83247"
+         height="1000"
+         width="1000"
+         id="rect3370"
+         style="fill:#ececec" />
+    </g>
     <rect
        style="fill:#ff0000"
        id="rect3407"
