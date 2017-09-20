@@ -27,8 +27,9 @@ bool Template::execbool (const QString& cmd) {
 	qDebug() << "Exec: (bool) " << command;
 
 	int result = system(command);
+	qDebug() << "Exec: (bool) result " << result;
 
-	if (result == 0)
+	if (result != 0)
 		return false;
 	else
 		return true;

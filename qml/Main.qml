@@ -9,6 +9,8 @@ MainView {
 	objectName: 'mainView'
 	applicationName: 'ontheroad.emanuelesorce'
 	automaticOrientation: true
+	width: units.gu(50)
+	height: units.gu(75)
 
 	Page {
 		header: PageHeader {
@@ -51,14 +53,19 @@ MainView {
 					text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THIS IS STILL ALPHA SOFTWARE! THERE IS NO WARRANTY OF ANY KIND.<br>As far as now the CLI tool is available, while the graphic interface is still work in progress. Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and typing the command 'otr-ssh' to enter the AppArmor free shell, then you can launch the On The Road CLI with 'otr'")
 				}
 
-
 				Button {
 					id: bone
 					text: i18n.tr("Install CLI tool")
 					onClicked: {
-						Template.exec("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/install.sh");
-						text = i18n.tr("CLI tool is now installed");
-						color = UbuntuColors.green;
+						var installed = Template.execbool("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/install.sh");
+						if (installed) {
+							text = i18n.tr("CLI tool is now installed");
+							color = UbuntuColors.green;
+						}
+						else {
+							text = i18n.tr("Unable to install");
+							color = UbuntuColors.orange;
+						}
 					}
 					visible: ! flick.isinstalled
 				}
@@ -102,5 +109,9 @@ MainView {
 				}
 			}
                 }
+		Scrollbar {
+			flickableItem: flick
+			align: Qt.AlignTrailing
+		}
 	}
 }
