@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 10:57+0200\n"
+"POT-Creation-Date: 2017-09-20 15:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "On The Road"
 msgstr ""
 
-#: ../qml/Main.qml:53
+#: ../qml/Main.qml:60
 msgid ""
 "On The Road is a tool to easily develop applications inside Ubuntu Touch "
 "devices. It uses containers to create development environment where the "
@@ -34,38 +34,38 @@ msgid ""
 "launch the On The Road CLI with 'otr'"
 msgstr ""
 
-#: ../qml/Main.qml:58
+#: ../qml/Main.qml:65
 msgid "Install CLI tool"
 msgstr ""
 
-#: ../qml/Main.qml:62
+#: ../qml/Main.qml:69
 msgid "CLI tool is now installed"
 msgstr ""
 
-#: ../qml/Main.qml:66
+#: ../qml/Main.qml:73
 msgid "Unable to install"
 msgstr ""
 
-#: ../qml/Main.qml:75
+#: ../qml/Main.qml:82
 msgid "<b>CLI tool is installed</b>"
 msgstr ""
 
-#: ../qml/Main.qml:83
+#: ../qml/Main.qml:90
 msgid "<b>CLI tool is now updated</b>"
 msgstr ""
 
-#: ../qml/Main.qml:88
+#: ../qml/Main.qml:95
 msgid "Update CLI tool to latest version"
 msgstr ""
 
-#: ../qml/Main.qml:102
+#: ../qml/Main.qml:109
 msgid ""
 "This software is licensed under the GNU GPLv3 license as published by the "
 "Free Software Foundation.<br>Copyright (c) 2017 Emanuele Sorce<br>The code "
 "is hosted in github: https://github.com/TronFourtyTwo/OnTheRoad"
 msgstr ""
 
-#: ../qml/Main.qml:108
+#: ../qml/Main.qml:115
 msgid ""
 "There are many way to help this app to improve and get more useful: your "
 "feedback is much appreciated, bug listing and feature requests are very "
