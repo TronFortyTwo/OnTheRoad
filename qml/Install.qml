@@ -25,8 +25,8 @@ Page {
 		property var isupdated: false
 		
 		Component.onCompleted: {
-			flick.isinstalled = Template.execbool("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/isinstalled.sh")
-			flick.isupdated = Template.execbool("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/isupdated.sh")
+			flick.isinstalled = Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/isinstalled.sh")
+			flick.isupdated = Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/isupdated.sh")
 			console.log("isinstalled: " + flick.isinstalled)
 			console.log("isupdated: " + flick.isupdated)
 		}
@@ -57,7 +57,7 @@ Page {
 				id: bone
 				text: i18n.tr("Install CLI tool")
 				onClicked: {
-					var installed = Template.execbool("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/install.sh");
+					var installed = Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/install.sh");
 					if (installed) {
 						text = i18n.tr("CLI tool is now installed");
 						color = UbuntuColors.green;
@@ -90,7 +90,7 @@ Page {
 				color: UbuntuColors.red
 				visible: flick.isinstalled && !flick.isupdated
 				onClicked: {
-					Template.exec("sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh")
+					Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh")
 					visible = false
 					d.visible = true
 				}

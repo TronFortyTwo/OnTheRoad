@@ -1,38 +1,29 @@
 #include <QDebug>
 #include <QString>
 
-#include "stdlib.h"
-
 #include "template.h"
 
 Template::Template() {
-
-}
-
-int Template::exec(const QString& cmd) {
-
-	QByteArray ba = cmd.toLatin1();
-	const char *command = ba.data();
-
-	qDebug() << "Exec:  " << command;
-
-	return system(command);
+    proc = new QProcess(this);
 }
 
 bool Template::execbool (const QString& cmd) {
 
-	QByteArray ba = cmd.toLatin1();
-	const char *command = ba.data();
+	qDebug() << "Exec: " << cmd;
+	int result = 666;
 
-	qDebug() << "Exec: (bool) " << command;
+	// for now empty args
+    QStringList args = cmd.split(" ");
+    if (args.count() > 0) {
+        QString program = args.takeFirst();
+	    proc->start(program, args);
+	    proc->waitForFinished();
+		result = proc->exitCode();
+	}
+	qDebug() << "Exec: result " << result;
 
-	int result = system(command);
-	qDebug() << "Exec: (bool) result " << result;
-
-	if (result == 1) {
+	if (result == 0) {
 		return true;
-	} else if (result == 0) {
-		return false;
 	}
 	return false;
 }
