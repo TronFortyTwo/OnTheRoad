@@ -14,6 +14,10 @@ MainView {
 		id: install
 	}
 
+	About {
+		id: about
+	}
+
 	PageStack {
 		id: pageStack
 	}

@@ -3,21 +3,16 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Template 1.0
 
-Page {
+BasePage {
 	id: install
 	visible: false
-	header: PageHeader {
-		title: i18n.tr('On The Road')
-		id: header
-	}
+	title: i18n.tr('On The Road')
 	
 	Flickable {
-		anchors {
-			top: header.bottom
-			left: parent.left
-			right: parent.right
-			bottom: parent.bottom
-		}
+        anchors {
+            fill: parent
+            margins: units.gu(2)
+        }
 
 		id: flick
 
