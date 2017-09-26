@@ -123,7 +123,7 @@ do
 		echo "On The Road Manual"
 		echo "------------------"
 		echo "On The Road uses chroot containers to have environments where the hacker can develop freely"
-		echo "Remember to run the otr-ssh command to enter the AppArmor-free shell, then you can run 'otr'. Running 'otr' will BREAK containers!"
+		echo "Remember to run the otr-ssh command to enter the AppArmor-free shell, then you can run 'otr'. Running only 'otr' without 'otr-ssh' and entering a container will BREAK the container!"
 		echo "To create a new container, select Create New Container in the main menu then follow instructions."
 		echo "Once a container is created you can use it going in the Use Container section of the main menu"
 		echo "Another point is the seamless integration with Libertine, you can use your Libertine containers with On The Road out of the box, and viceversa if you wish"
