@@ -10,7 +10,7 @@ Template::Template() {
 bool Template::execbool (const QString& cmd) {
 
 	qDebug() << "Exec: " << cmd;
-	int result = 666;
+	int result = 678;
 
 	// for now empty args
     QStringList args = cmd.split(" ");
