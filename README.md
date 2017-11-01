@@ -22,5 +22,5 @@ This app is licensed under the GNU GPLv3 license. Copyright (c) 2017 Emanuele So
 # Contribute
 
 You want to help the development of this tool? Feedbacks, suggestions, pull requests and donations are very appreciated, feel free to contact me:
-- Telegram: @TronFourtyTwo
+- Telegram: @TronFortyTwo
 - email: emanuele.sorce@hotmail.com
