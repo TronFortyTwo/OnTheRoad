@@ -55,7 +55,7 @@ Page {
          }
 
          Label {
-            text: i18n.tr("Source code available on <a href='https://github.com/TronFourtyTwo/OnTheRoad'>GitHub</a>")
+            text: i18n.tr("Source code available on <a href='https://github.com/TronFortyTwo/OnTheRoad'>GitHub</a>")
             onLinkActivated: Qt.openUrlExternally(link)
             horizontalAlignment: Text.Center
             width: parent.width
