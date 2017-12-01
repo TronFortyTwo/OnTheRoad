@@ -71,7 +71,7 @@ do
 			tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
 			rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
 			
-			if [ wc -l < ~/.local/share/libertine/ContainersConfig.json < 5]; then
+			if [ wc -l < ~/.local/share/libertine/ContainersConfig.json < "5" ]; then
 				rm ~/.local/share/libertine/ContainersConfig.json
 				touch ~/.local/share/libertine/ContainersConfig.json
 			fi
