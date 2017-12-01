@@ -10,6 +10,7 @@ do
 	echo "3) Use a container"
 	echo "4) About On The Road"
 	echo "5) Help"
+	echo "6) Danger zone"
 	echo "0) Exit"
 	echo
 
@@ -69,6 +70,7 @@ do
 			bzip2 -d  "/home/phablet/.cache/libertine-container/$newname/rootfs.tar.bz2"
 			tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
 			rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
+			
 			if [ wc -l < ~/.local/share/libertine/ContainersConfig.json < 5]; then
 				rm ~/.local/share/libertine/ContainersConfig.json
 				touch ~/.local/share/libertine/ContainersConfig.json
@@ -134,6 +136,60 @@ do
 		echo
 		echo "Press something to continue..."
 		read -n 1 -s
+	fi
+
+	if [ "$input" == "6" ]; then
+		clear
+		echo "DANGER ZONE"
+		echo "-----------"
+		echo "Do you want to open the door of the danger zone and enter? Don't do anything here if you don't know what you're doing. Go back while you are still in time"
+		echo		
+		echo "1) No"
+		echo "2) No"
+		echo "3) No"
+		echo "4) No"
+		echo "5) Yes"
+		echo "6) No"
+		echo "7) No"
+		echo "8) No"
+
+		read input2
+
+		if [ "$input2" == "5" ]; then
+			clear
+			echo "DANGER ZONE"
+			echo "-----------"
+			echo
+			echo "1) Back"
+			echo
+			echo "2) Container reset"
+
+			read input3
+
+			if [ "$input3" == "2" ]; then
+				clear
+				echo "CONTAINER RESET"
+				echo "---------------"
+				echo
+				echo "Reset ALL containers, both Libertine AND OnTheRoad ones. Reset also configurations. Use this if the ContainersConfig.json file got corrupted. This operation requires root privilegies"
+				echo
+				echo "1) Proceed resetting"
+				echo
+				echo "2) Back"
+				
+				read input4
+				
+				if [ "$input4" == "1" ]; then
+					clear
+					echo "Resetting, this could take a while..."
+					echo "Log:"
+					echo
+					sudo rm -r ~/.cache/libertine-container
+					sudo rm ~/.local/share/libertine/ContainersConfig.json
+					touch ~/.local/share/libertine/ContainersConfig.json
+				fi
+			fi
+		fi
 	fi
 
 	if [ "$input" == "2" ]; then
