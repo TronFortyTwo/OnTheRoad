@@ -69,9 +69,13 @@ do
 			bzip2 -d  "/home/phablet/.cache/libertine-container/$newname/rootfs.tar.bz2"
 			tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
 			rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
+			if [ wc -l < ~/.local/share/libertine/ContainersConfig.json < 5]; then
+				rm ~/.local/share/libertine/ContainersConfig.json
+				touch ~/.local/share/libertine/ContainersConfig.json
+			fi
+			
 			if [ ! -s ~/.local/share/libertine/ContainersConfig.json ]; then
 				touch ~/.cache/ontheroad.emanuelesorce/temp/isnew
-				touch ~/.local/share/libertine/ContainersConfig.json
 				echo "{" > ~/.local/share/libertine/ContainersConfig.json
 				echo "	\"containerList\": [" >> ~/.local/share/libertine/ContainersConfig.json
 				echo "	]," >> ~/.local/share/libertine/ContainersConfig.json
