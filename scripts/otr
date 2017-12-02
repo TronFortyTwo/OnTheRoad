@@ -71,7 +71,8 @@ do
 			tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
 			rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
 			
-			if [ wc -l < ~/.local/share/libertine/ContainersConfig.json < "5" ]; then
+			LINES=$(wc -l < ~/.local/share/libertine/ContainersConfig.json)
+			if [ "$LINES" == "3" ]; then
 				rm ~/.local/share/libertine/ContainersConfig.json
 				touch ~/.local/share/libertine/ContainersConfig.json
 			fi
@@ -152,6 +153,7 @@ do
 		echo "6) No"
 		echo "7) No"
 		echo "8) No"
+		echo
 
 		read input2
 
@@ -163,6 +165,7 @@ do
 			echo "1) Back"
 			echo
 			echo "2) Container reset"
+			echo
 
 			read input3
 
@@ -176,7 +179,8 @@ do
 				echo "1) Proceed resetting"
 				echo
 				echo "2) Back"
-				
+				echo
+
 				read input4
 				
 				if [ "$input4" == "1" ]; then
