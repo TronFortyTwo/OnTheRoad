@@ -8,7 +8,7 @@ Highlighted features are a bundled vivid container for easy and fast installatio
 
 ### Using OnTheRoad
 
-Inside an OnTheRoad container is enought to launch the package.sh script to build the .click package. You need make, cmake and click-dev installed in your container.
+Inside an OnTheRoad container is enought to launch the package.sh script to build the .click package. Launch before install-dep.sh to install all the dependencies.
 
 ### Using Clickable
 
