@@ -45,7 +45,7 @@ BasePage {
 			Label {
 				width: parent.width
 				wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-				text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THIS IS STILL ALPHA SOFTWARE! THERE IS NO WARRANTY OF ANY KIND.<br>As far as now the CLI tool is available, while the graphic interface is still work in progress. Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and typing the command 'otr-ssh' to enter the AppArmor free shell, then you can launch the On The Road CLI with 'otr'")
+				text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THERE IS NO WARRANTY OF ANY KIND<br>Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and just typing 'otr' to launch the command line interface of the app.")
 			}
 
 			Button {
@@ -54,15 +54,22 @@ BasePage {
 				onClicked: {
 					var installed = Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/install.sh");
 					if (installed) {
-						text = i18n.tr("CLI tool is now installed");
-						color = UbuntuColors.green;
+						visible = false;
+						b.visible = true;
 					}
 					else {
-						text = i18n.tr("Unable to install");
-						color = UbuntuColors.orange;
+						visible = false;
+						fail.visible = true;
 					}
 				}
 				visible: ! flick.isinstalled
+			}
+
+			Label {
+				id: fail
+				text: i18n.tr("<b>CLI tool failed to install! See log file for details</b>");
+				color: UbuntuColors.red
+				visible: false
 			}
 
 			Label {
@@ -82,7 +89,7 @@ BasePage {
 			Button {
 				text: i18n.tr("Update CLI tool to latest version")
 				id: btwo
-				color: UbuntuColors.red
+				color: UbuntuColors.green
 				visible: flick.isinstalled && !flick.isupdated
 				onClicked: {
 					Template.execbool("/bin/sh /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/update.sh")

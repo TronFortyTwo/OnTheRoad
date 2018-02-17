@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -d ~/.cache/ontheroad.emanuelesorce/bin ]; then
+if [ -f ~/.cache/ontheroad.emanuelesorce/bin/otr ]; then
 	exit 0
 else
 	exit 1

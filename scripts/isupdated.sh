@@ -7,11 +7,7 @@ if [ ! isinstalled ]; then
 fi
 
 if diff /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/otr ~/.cache/ontheroad.emanuelesorce/bin/otr >/dev/null ; then
-	if diff /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/otr-ssh ~/.cache/ontheroad.emanuelesorce/bin/otr-ssh >/dev/null ; then
-		exit 0
-	else
-		exit 1
-	fi
+	exit 0
 else
 	exit 1
 fi
