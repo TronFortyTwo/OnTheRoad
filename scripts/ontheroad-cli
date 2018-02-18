@@ -267,8 +267,9 @@ do
 			echo
 			echo "1) Open a bourne again shell (BASH)"
 			echo "2) Libertine launch"
+			echo "3) Set up Clickable"
 			echo
-			echo "3) Back"
+			echo "4) Back"
 			echo
 
 			read input2
@@ -278,9 +279,44 @@ do
 				libertine-container-manager exec -i $contouse -c /bin/bash
 			fi
 
-			if [ "input2" == "2" ]; then
+			if [ "$input2" == "2" ]; then
 				clear
 				libertine-launch -i $contouse
+			fi
+
+			if [ "$input2" == "3" ]; then
+				clear
+				echo "------------"
+				echo "Clickable"
+				echo
+				echo "Clickable, the wonderful tool to develop apps for Ubuntu Touch"
+				echo "Remember to use --container-mode inside the container"
+				echo
+				echo "Press i to install, anyhting else to abort"
+				echo
+
+				read input3
+
+				if [ "$input3" == "i" ]; then
+					clear
+					echo "--------------------"
+					echo "Installing Clickable"
+					echo
+					echo "log:"
+					echo
+					echo "installing dependencies..."
+					libertine-container-manager exec -i $contouse -c "apt update"
+					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git -y" &&
+					echo "downloading Clickable..." &&
+					libertine-container-manager exec -i $contouse -c "git clone https://github.com/bhdouglass/clickable.git" &&
+					echo "configuring..." &&
+					libertine-container-manager exec -i $contouse -c "ln -sf /clickable/clickable /bin/clickable" &&
+					echo &&
+					echo "Clickable successfully installed"
+					echo "Press anything to continue..."
+
+					read input4
+				fi
 			fi
 		fi
 	fi

@@ -34,8 +34,8 @@ Page {
             width: parent.width
             UbuntuShape {
                Layout.alignment: Qt.AlignHCenter
-               width: units.gu(64)
-               height: units.gu(64)
+               width: units.gu(128)
+               height: units.gu(128)
                image: Image {
                   source: "../assets/ontheroad.svg"
                }
