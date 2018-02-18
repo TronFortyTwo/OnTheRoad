@@ -3,7 +3,7 @@
 # Move files to the build locations
 mkdir build
 cp -v CMakeLists.txt build
-cp -v rootfs.tar.bz2 build
+#cp -v rootfs.tar.bz2 build
 cp -v manifest.json.in build
 cp -v app.desktop.in build
 cp -v app.apparmor build

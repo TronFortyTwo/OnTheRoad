@@ -39,88 +39,145 @@ do
 	fi
 
 	if [ "$input" == "1" ]; then
-		clear
-		echo "----------------------"
-		echo "Create a new container"
-		echo
-		echo "Insert a name for the new container:"
-		echo "Name must be of form ([a-z0-9][a-z0-9+.-]+)."
-		echo
-		read newname
-		clear
-		if [ -d "/home/phablet/.cache/libertine-container/$newname/rootfs" ]; then
+
+		if [ ! -s ~/.cache/ontheroad.emanuelesorce/containers/rootfs.tar.bz2 ]; then
+
 			clear
-			echo "----------------------------"
-			echo "The container already exits!"
+			echo "----------------------"
+			echo "Create a new container"
 			echo
-			echo "Press something to continue..."
-			read -n 1 -s
+			echo "Container not downloaded"
+			echo "Download is approximately of ~170Mb"
+			echo "The downloaded image is an already debootstrapped container ready to be installed"
+			echo "The download is required only once, then you'll be able to quickly setup as many containers as you want offline"
+			echo
+			echo "press 'i' to download it"
+			echo
+
+			read input2
+
+			if [ "$input2" == "i" ]; then
+
+				clear
+				echo "----------------"
+				echo "Downloading..."
+				echo
+				echo "log:"
+				echo
+
+				mkdir ~/.cache/ontheroad.emanuelesorce/containers
+
+				curl —header 'Host: dl.dropboxusercontent.com' —user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0' —header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' —header 'Accept-Language: en-US,en;q=0.5' —referer 'https://www.dropbox.com/' —cookie 'uc_session=botJkb5pxNwrx9Ud3kQntsl74fezhKhI8twZH8lb98MGzLzG3LCpzEQjH3IIg4su' —header 'Upgrade-Insecure-Requests: 1' 'https://dl.dropboxusercontent.com/content_link/U7wbWrwsP1yCiEUwIbE9jGT1csc99Smn9eYgSEQweHRZeD2b8jqiJWCExWX3nYXd/file?_download_id=15524130175893547657900841847560988797679117499229692713020205637&_notify_domain=www.dropbox.com&dl=1' —output '~/.cache/ontheroad.emanuelesorce/containers/rootfs.tar.bz2'
+
+				if [ $? -eq 0 ]; then
+
+					clear
+					echo "--------------------"
+					echo "Contaner successfully downloaded!"
+					echo
+					echo "Now you can create new containers"
+					echo
+					echo "press enter to continue"
+
+					read qwe
+
+				else
+
+					rm -r ~/.cache/ontheroad.emanuelesorce/containers
+					echo
+					echo "------------------"
+					echo "Container download failed"
+					echo
+					echo "press enter to continue"
+
+					read qwee
+				fi
+			fi
 		else
+
 			clear
-			echo "----------------------------"
-			echo "Installing the new container"
+			echo "----------------------"
+			echo "Create a new container"
 			echo
-			echo "This could take a while. There is no need for an internet connection."
-			echo "Creating into: /home/phablet/.cache/libertine-container/$newname"
+			echo "Insert a name for the new container:"
+			echo "Name must be of form ([a-z0-9][a-z0-9+.-]+)."
 			echo
-			echo "log:"
-			echo
-			mkdir -p "/home/phablet/.cache/libertine-container/$newname"
-			cp -v /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/rootfs.tar.bz2 "/home/phablet/.cache/libertine-container/$newname/"
-			bzip2 -d  "/home/phablet/.cache/libertine-container/$newname/rootfs.tar.bz2"
-			tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
-			rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
-			
-			LINES=$(wc -l < ~/.local/share/libertine/ContainersConfig.json)
-			if [ "$LINES" == "3" ]; then
-				rm ~/.local/share/libertine/ContainersConfig.json
-				touch ~/.local/share/libertine/ContainersConfig.json
-			fi
-			
-			if [ ! -s ~/.local/share/libertine/ContainersConfig.json ]; then
-				touch ~/.cache/ontheroad.emanuelesorce/temp/isnew
-				echo "{" > ~/.local/share/libertine/ContainersConfig.json
-				echo "	\"containerList\": [" >> ~/.local/share/libertine/ContainersConfig.json
-				echo "	]," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "	\"defaultContainer\":\"$newname\"" >> ~/.local/share/libertine/ContainersConfig.json
-				echo "}" >> ~/.local/share/libertine/ContainersConfig.json
-			fi
-			mkdir ~/.cache/ontheroad.emanuelesorce/temp
-			cp -v ~/.local/share/libertine/ContainersConfig.json ~/.cache/ontheroad.emanuelesorce/temp/
-			sed -n '1,2p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json > ~/.local/share/libertine/ContainersConfig.json
-			echo "		{" >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"distro\":\"vivid\"," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"id\":\"$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"InstallStatus\":\"ready\"," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"InstalledApps\":[]," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"multiarch\":\"disabled\"," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"name\":\"OnTheRoad-$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
-			echo "			\"type\":\"chroot\"" >> ~/.local/share/libertine/ContainersConfig.json
-
-			if [ -f ~/.cache/ontheroad.emanuelesorce/temp/isnew ]; then
-				echo "		}" >> ~/.local/share/libertine/ContainersConfig.json
-				rm ~/.cache/ontheroad.emanuelesorce/temp/isnew
-			else
-				echo "		}," >> ~/.local/share/libertine/ContainersConfig.json
-			fi
-			sed -n '3,$p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json >> ~/.local/share/libertine/ContainersConfig.json
-			rm ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json
-
+			read newname
+			clear
 			if [ -d "/home/phablet/.cache/libertine-container/$newname/rootfs" ]; then
 				clear
-				echo "------------------------------"
-				echo "Container created successfully"
+				echo "----------------------------"
+				echo "The container already exits!"
 				echo
 				echo "Press something to continue..."
 				read -n 1 -s
 			else
-				rm -r "/home/phablet/.cache/libertine-container/$newname"
 				clear
-				echo "-------------------------------------------"
-				echo "Error occurred while creating the container"
+				echo "----------------------------"
+				echo "Installing the new container"
 				echo
-				echo "Press something to continue..."
-				read -n 1 -s
+				echo "This could take a while. There is no need for an internet connection."
+				echo "Creating into: /home/phablet/.cache/libertine-container/$newname"
+				echo
+				echo "log:"
+				echo
+				mkdir -p "/home/phablet/.cache/libertine-container/$newname"
+				cp -v ~/.cache/ontheroad.emanuelesorce/containers/rootfs.tar.bz2 "/home/phablet/.cache/libertine-container/$newname/"
+				bzip2 -d  "/home/phablet/.cache/libertine-container/$newname/rootfs.tar.bz2"
+				tar xvf "/home/phablet/.cache/libertine-container/$newname/rootfs.tar" -C "/home/phablet/.cache/libertine-container/$newname/"
+				rm "/home/phablet/.cache/libertine-container/$newname/rootfs.tar"
+
+				LINES=$(wc -l < ~/.local/share/libertine/ContainersConfig.json)
+				if [ "$LINES" == "3" ]; then
+					rm ~/.local/share/libertine/ContainersConfig.json
+					touch ~/.local/share/libertine/ContainersConfig.json
+				fi
+
+				if [ ! -s ~/.local/share/libertine/ContainersConfig.json ]; then
+					touch ~/.cache/ontheroad.emanuelesorce/temp/isnew
+					echo "{" > ~/.local/share/libertine/ContainersConfig.json
+					echo "	\"containerList\": [" >> ~/.local/share/libertine/ContainersConfig.json
+					echo "	]," >> ~/.local/share/libertine/ContainersConfig.json
+					echo "	\"defaultContainer\":\"$newname\"" >> ~/.local/share/libertine/ContainersConfig.json
+					echo "}" >> ~/.local/share/libertine/ContainersConfig.json
+				fi
+				mkdir ~/.cache/ontheroad.emanuelesorce/temp
+				cp -v ~/.local/share/libertine/ContainersConfig.json ~/.cache/ontheroad.emanuelesorce/temp/
+				sed -n '1,2p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json > ~/.local/share/libertine/ContainersConfig.json
+				echo "		{" >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"distro\":\"vivid\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"id\":\"$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"InstallStatus\":\"ready\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"InstalledApps\":[]," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"multiarch\":\"disabled\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"name\":\"OnTheRoad-$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "			\"type\":\"chroot\"" >> ~/.local/share/libertine/ContainersConfig.json
+
+				if [ -f ~/.cache/ontheroad.emanuelesorce/temp/isnew ]; then
+					echo "		}" >> ~/.local/share/libertine/ContainersConfig.json
+					rm ~/.cache/ontheroad.emanuelesorce/temp/isnew
+				else
+					echo "		}," >> ~/.local/share/libertine/ContainersConfig.json
+				fi
+				sed -n '3,$p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json >> ~/.local/share/libertine/ContainersConfig.json
+				rm ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json
+
+				if [ -d "/home/phablet/.cache/libertine-container/$newname/rootfs" ]; then
+					clear
+					echo "------------------------------"
+					echo "Container created successfully"
+					echo
+					echo "Press something to continue..."
+					read -n 1 -s
+				else
+					rm -r "/home/phablet/.cache/libertine-container/$newname"
+					clear
+					echo "-------------------------------------------"
+					echo "Error occurred while creating the container"
+					echo
+					echo "Press something to continue..."
+					read -n 1 -s
+				fi
 			fi
 		fi
 	fi
