@@ -137,9 +137,9 @@ do
 				if [ ! -s ~/.local/share/libertine/ContainersConfig.json ]; then
 					touch ~/.cache/ontheroad.emanuelesorce/temp/isnew
 					echo "{" > ~/.local/share/libertine/ContainersConfig.json
-					echo "	\"containerList\": [" >> ~/.local/share/libertine/ContainersConfig.json
-					echo "	]," >> ~/.local/share/libertine/ContainersConfig.json
-					echo "	\"defaultContainer\":\"$newname\"" >> ~/.local/share/libertine/ContainersConfig.json
+					echo "    \"containerList\": [" >> ~/.local/share/libertine/ContainersConfig.json
+					echo "    ]," >> ~/.local/share/libertine/ContainersConfig.json
+					echo "   \"defaultContainer\":\"$newname\"" >> ~/.local/share/libertine/ContainersConfig.json
 					echo "}" >> ~/.local/share/libertine/ContainersConfig.json
 				fi
 				mkdir ~/.cache/ontheroad.emanuelesorce/temp
@@ -155,10 +155,10 @@ do
 				echo "            \"type\": \"chroot\"" >> ~/.local/share/libertine/ContainersConfig.json
 
 				if [ -f ~/.cache/ontheroad.emanuelesorce/temp/isnew ]; then
-					echo "		}" >> ~/.local/share/libertine/ContainersConfig.json
+					echo "        }" >> ~/.local/share/libertine/ContainersConfig.json
 					rm ~/.cache/ontheroad.emanuelesorce/temp/isnew
 				else
-					echo "		}," >> ~/.local/share/libertine/ContainersConfig.json
+					echo "        }," >> ~/.local/share/libertine/ContainersConfig.json
 				fi
 				sed -n '3,$p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json >> ~/.local/share/libertine/ContainersConfig.json
 				rm ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json
