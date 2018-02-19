@@ -65,9 +65,10 @@ do
 				echo "log:"
 				echo
 
-				mkdir ~/.cache/ontheroad.emanuelesorce/containers
+				mkdir ~/.cache/ontheroad.emanuelesorce/containers/
+				cd ~/.cache/ontheroad.emanuelesorce/containers
 
-				curl —header 'Host: dl.dropboxusercontent.com' —user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0' —header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' —header 'Accept-Language: en-US,en;q=0.5' —referer 'https://www.dropbox.com/' —cookie 'uc_session=botJkb5pxNwrx9Ud3kQntsl74fezhKhI8twZH8lb98MGzLzG3LCpzEQjH3IIg4su' —header 'Upgrade-Insecure-Requests: 1' 'https://dl.dropboxusercontent.com/content_link/U7wbWrwsP1yCiEUwIbE9jGT1csc99Smn9eYgSEQweHRZeD2b8jqiJWCExWX3nYXd/file?_download_id=15524130175893547657900841847560988797679117499229692713020205637&_notify_domain=www.dropbox.com&dl=1' —output '~/.cache/ontheroad.emanuelesorce/containers/rootfs.tar.bz2'
+				wget --header 'Host: dl.dropboxusercontent.com' --user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://www.dropbox.com/' --header 'Cookie: uc_session=Ths8NGYbgncStSeEZfG6GNd3Ey7UKkQMt5kqnZchFtGnFRYBRji3PGYqrmQ5LN7d' --header 'Upgrade-Insecure-Requests: 1' 'https://dl.dropboxusercontent.com/content_link/JDWWlMtDIDW2mcktQMjqtioRGV0YOMnfmcioIVBsVAhIJLAC7EOgaPP620Mossk4/file?_download_id=1754057429667455765261847043826359020916385214064342069332446108&_notify_domain=www.dropbox.com&dl=1' --output-document 'rootfs.tar.bz2'
 
 				if [ $? -eq 0 ]; then
 
@@ -364,7 +365,7 @@ do
 					echo
 					echo "installing dependencies..."
 					libertine-container-manager exec -i $contouse -c "apt update"
-					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git -y" &&
+					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git docker -y" &&
 					echo "downloading Clickable..." &&
 					libertine-container-manager exec -i $contouse -c "git clone https://github.com/bhdouglass/clickable.git" &&
 					echo "configuring..." &&
