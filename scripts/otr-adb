@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# just launch the CLI
+/opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/ontheroad-cli

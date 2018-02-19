@@ -60,6 +60,13 @@ Page {
             horizontalAlignment: Text.Center
             width: parent.width
          }
+
+         Label {
+            text: i18.tr("This software is licensed under the GNU GPLv3 license as published by the Free Software Foundation.<br>Copyright 2017-2018 Emanuele Sorce<br><br>There are many ways to help this app to improve and get more useful: your feedback is much appreciated, bug listing and feature requests are very important and if you like this app, consider doing a small donation to incourage and help me.<br>Contact me: (Emanuele Sorce)<br>e-mail: emanuele.sorce@hotmail.com<br>Telegram: @TronFortyTwo")
+            horizontalAlignment: Text.Center
+	    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            width: parent.width
+         }
       }
    }
 }

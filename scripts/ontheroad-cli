@@ -188,8 +188,9 @@ do
 		echo "------------------"
 		echo "On The Road uses chroot containers to have environments where the hacker can develop freely"
 		echo "To create a new container, select Create New Container in the main menu then follow instructions."
-		echo "Once a container is created you can use it going in the Use Container section of the main menu"
+		echo "Once a container is created you can use it going in the Use Container section of the main menu, there you can set up a developing workflow installing Clickable automatically and open shells"
 		echo "Another point is the seamless integration with Libertine, you can use your Libertine containers with On The Road out of the box, and viceversa if you wish"
+		echo "If you plan to use otr remotely (from a computer throught ssh, adb, phablet-shell) or from a Iperspace session, use the otr-adb command instead"
 		echo
 		echo "Press something to continue..."
 		read -n 1 -s

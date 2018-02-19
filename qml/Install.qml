@@ -45,7 +45,7 @@ BasePage {
 			Label {
 				width: parent.width
 				wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-				text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THERE IS NO WARRANTY OF ANY KIND<br>Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and just typing 'otr' to launch the command line interface of the app.")
+				text: i18n.tr("On The Road is a tool to easily develop applications inside Ubuntu Touch devices. It uses containers to create development environment where the hacker can act like in a standard environment. It also fully integrates with Libertine and its containers.<br>THERE IS NO WARRANTY OF ANY KIND<br>Once the CLI tool is installed you can use On The Road opening the Terminal-App or any other shell and just typing 'otr' to launch the command line interface of the app. If you want to use it instead remotely (from ssh, adb, phablet-shell...) use the 'otr-adb' command instead")
 			}
 
 			Button {
@@ -96,18 +96,6 @@ BasePage {
 					visible = false
 					d.visible = true
 				}
-			}
-
-			Label {
-				width: parent.width
-				wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-				text: i18n.tr("This software is licensed under the GNU GPLv3 license as published by the Free Software Foundation.<br>Copyright (c) 2017 Emanuele Sorce<br>The code is hosted in github: https://github.com/TronFortyTwo/OnTheRoad")
-			}
-
-			Label {
-				width: parent.width
-				wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-				text: i18n.tr("There are many way to help this app to improve and get more useful: your feedback is much appreciated, bug listing and feature requests are very important and if you like this app, consider doing a donation to incourage and help the developer.<br>Contact me (Emanuele Sorce):<br>e-mail: emanuele.sorce@hotmail.com<br>Telegram: @TronFortyTwo")
 			}
 		}
 	}

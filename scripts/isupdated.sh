@@ -7,7 +7,11 @@ if [ ! isinstalled ]; then
 fi
 
 if diff /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/otr ~/.cache/ontheroad.emanuelesorce/bin/otr >/dev/null ; then
-	exit 0
+	if diff /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/scripts/otr-adb ~/.cache/ontheroad.emanuelesorce/bin/otr-adb >/dev/null ; then
+		exit 0
+	else
+		exit 1
+	fi
 else
 	exit 1
 fi
