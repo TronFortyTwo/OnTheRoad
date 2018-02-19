@@ -145,14 +145,14 @@ do
 				mkdir ~/.cache/ontheroad.emanuelesorce/temp
 				cp -v ~/.local/share/libertine/ContainersConfig.json ~/.cache/ontheroad.emanuelesorce/temp/
 				sed -n '1,2p' ~/.cache/ontheroad.emanuelesorce/temp/ContainersConfig.json > ~/.local/share/libertine/ContainersConfig.json
-				echo "		{" >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"distro\":\"vivid\"," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"id\":\"$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"InstallStatus\":\"ready\"," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"InstalledApps\":[]," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"multiarch\":\"disabled\"," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"name\":\"OnTheRoad-$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
-				echo "			\"type\":\"chroot\"" >> ~/.local/share/libertine/ContainersConfig.json
+				echo "        {" >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"distro\": \"vivid\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"id\": \"$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"InstallStatus\": \"ready\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"InstalledApps\": []," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"multiarch\": \"disabled\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"name\": \"OnTheRoad-$newname\"," >> ~/.local/share/libertine/ContainersConfig.json
+				echo "            \"type\": \"chroot\"" >> ~/.local/share/libertine/ContainersConfig.json
 
 				if [ -f ~/.cache/ontheroad.emanuelesorce/temp/isnew ]; then
 					echo "		}" >> ~/.local/share/libertine/ContainersConfig.json
