@@ -262,6 +262,7 @@ do
 		echo "What container you want to destroy?"
 		echo "Container list:"
 		containerlist=$(libertine-container-manager list)
+		echo
 		echo "$containerlist"
 		echo
 
