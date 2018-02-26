@@ -23,53 +23,45 @@ msgstr ""
 
 #: ../qml/Install.qml:53
 msgid ""
-"On The Road is a tool to easily develop applications inside Ubuntu Touch "
-"devices. It uses containers to create development environment where the "
-"hacker can act like in a standard environment. It also fully integrates with "
-"Libertine and its containers.<br>THIS IS STILL ALPHA SOFTWARE! THERE IS NO "
-"WARRANTY OF ANY KIND.<br>As far as now the CLI tool is available, while the "
-"graphic interface is still work in progress. Once the CLI tool is installed "
+"On The Road is a tool to easily develop applications inside "
+"Ubuntu Touch devices. It uses containers to create development "
+"environment where the hacker can act like in a standard environment. "
+"It also fully integrates with Libertine and its containers."
+"<br>THERE IS NO WARRANTY OF ANY KIND<br>Once the CLI tool is installed "
 "you can use On The Road opening the Terminal-App or any other shell and "
-"typing the command 'otr-ssh' to enter the AppArmor free shell, then you can "
-"launch the On The Road CLI with 'otr'"
+"just typing 'otr' to launch the command line interface of the app. If "
+"you want to use it instead remotely (from ssh, adb, phablet-shell...) "
+"use the 'otr-adb' command instead"
 msgstr ""
 
 #: ../qml/Install.qml:58
-msgid "Install CLI tool"
+msgid "<b>CLI tool failed to install! See log file for details</b>"
 msgstr ""
 
 #: ../qml/Install.qml:62
-msgid "CLI tool is now installed"
-msgstr ""
-
-#: ../qml/Install.qml:66
-msgid "Unable to install"
-msgstr ""
-
-#: ../qml/Install.qml:75
 msgid "<b>CLI tool is installed</b>"
 msgstr ""
 
-#: ../qml/Install.qml:83
+#: ../qml/Install.qml:66
 msgid "<b>CLI tool is now updated</b>"
 msgstr ""
 
-#: ../qml/Install.qml:88
+#: ../qml/Install.qml:75
 msgid "Update CLI tool to latest version"
 msgstr ""
 
 #: ../qml/Install.qml:102
 msgid ""
-"This software is licensed under the GNU GPLv3 license as published by the "
-"Free Software Foundation.<br>Copyright (c) 2017 Emanuele Sorce<br>The code "
-"is hosted in github: https://github.com/TronFourtyTwo/OnTheRoad"
+"Source code available on <a href='https://github.com/TronFortyTwo/OnTheRoad'>GitHub</a>"
 msgstr ""
 
 #: ../qml/Install.qml:108
 msgid ""
-"There are many way to help this app to improve and get more useful: your "
-"feedback is much appreciated, bug listing and feature requests are very "
-"important and if you like this app, consider doing a donation to incourage "
-"and help the developer.<br>Contact me (Emanuele Sorce):<br>e-mail: emanuele."
-"sorce@hotmail.com<br>Telegram: @TronFourtyTwo"
+"This software is licensed under the GNU GPLv3 license as published by the "
+"Free Software Foundation.<br>Copyright 2017-2018 Emanuele Sorce<br><br>There "
+"are many ways to help this app to improve and get more useful: your feedback "
+"is much appreciated, bug listing and feature requests are very important and "
+"if you like this app, consider doing a small donation to incourage and help "
+"me.<br>Contact me: (Emanuele Sorce)<br>e-mail: "
+"emanuele.sorce@hotmail.com<br>Telegram: @TronFortyTwo"
 msgstr ""
