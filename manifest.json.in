@@ -9,7 +9,7 @@
             "desktop":  "app.desktop"
         }
     },
-    "version": "2.0.1",
+    "version": "2.0.2",
     "maintainer": "Emanuele Sorce <emanuele.sorce@hotmail.com>",
     "framework" : "ubuntu-sdk-15.04.7"
 }
