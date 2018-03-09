@@ -117,7 +117,7 @@ do
 				echo "----------------------------"
 				echo "Installing the new container"
 				echo
-				echo "This could take a while. There is no need for an internet connection."
+				echo "This could take few minutes. There is no need for an internet connection."
 				echo "Creating into: /home/phablet/.cache/libertine-container/$newname"
 				echo
 				echo "log:"
@@ -242,7 +242,6 @@ do
 				echo
 
 				read input4
-				
 				if [ "$input4" == "1" ]; then
 					clear
 					echo "Resetting, this could take a while..."
@@ -330,8 +329,9 @@ do
 			echo "1) Open a bourne again shell (BASH)"
 			echo "2) Libertine launch"
 			echo "3) Set up Clickable"
+			echo "4) Update Clickable"
 			echo
-			echo "4) Back"
+			echo "5) Back"
 			echo
 
 			read input2
@@ -378,6 +378,33 @@ do
 					echo "Press anything to continue..."
 
 					read input4
+				fi
+			fi
+
+			if [ "$input2" == "4" ]; then
+
+				if [ ! -d /home/phablet/.cache/libertine-container/$contouse/rootfs/clickable ]; then
+					clear
+					echo "-----------"
+					echo "Clickable"
+					echo
+					echo "Can't update Clickable, it is not installed. Install it before"
+
+					read i
+				else
+					clear
+					echo "------------------"
+					echo "Updating Clickable"
+					echo
+					echo "log:"
+					echo
+					libertine-container-manager exec -i $contouse -c "git -C /clickable/ pull"
+
+					echo "-----------"
+					echo "Updating process completed."
+					echo "press something to continue..."
+
+					read i
 				fi
 			fi
 		fi
