@@ -68,7 +68,7 @@ do
 				mkdir ~/.cache/ontheroad.emanuelesorce/containers/
 				cd ~/.cache/ontheroad.emanuelesorce/containers
 
-				wget 'https://github-production-release-asset-2e65be.s3.amazonaws.com/99728451/63ba2f30-476a-11e8-9e96-4e0e4573c948?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180424%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180424T100908Z&X-Amz-Expires=300&X-Amz-Signature=6ebf356fbe93278fd12b258a027f50304cf9dd080f14d5e0a9d548e8945e708c&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Drootfs.tar.bz2&response-content-type=application%2Foctet-stream' -O 'rootfs.tar.bz2'
+				wget $( /opt/click.ubunutu.com/ontheroad.emanuelesorce/current/curl -s https://api.github.com/repos/tronfortytwo/ontheroad/releases/latest | grep "browser_" | cut -d\" -f4)
 				
 				if [ $? -eq 0 ]; then
 
