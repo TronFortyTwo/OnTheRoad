@@ -3,7 +3,6 @@
 # Move files to the build locations
 mkdir build
 cp -v CMakeLists.txt build
-#cp -v rootfs.tar.bz2 build
 cp -v manifest.json.in build
 cp -v app.desktop.in build
 cp -v app.apparmor build
@@ -12,6 +11,8 @@ cp -v -r plugins build
 cp -v -r po build
 cp -v -r qml build
 cp -v -r scripts build
+# this is beacuse standard ubuntu touch installation don't provide curl executable
+cp -v /usr/bin/curl build
 
 # build
 cd build
