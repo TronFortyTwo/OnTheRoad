@@ -68,8 +68,8 @@ do
 				mkdir ~/.cache/ontheroad.emanuelesorce/containers/
 				cd ~/.cache/ontheroad.emanuelesorce/containers
 
-				wget --header 'Host: dl.dropboxusercontent.com' --user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://www.dropbox.com/' --header 'Cookie: uc_session=Ths8NGYbgncStSeEZfG6GNd3Ey7UKkQMt5kqnZchFtGnFRYBRji3PGYqrmQ5LN7d' --header 'Upgrade-Insecure-Requests: 1' 'https://dl.dropboxusercontent.com/content_link/JDWWlMtDIDW2mcktQMjqtioRGV0YOMnfmcioIVBsVAhIJLAC7EOgaPP620Mossk4/file?_download_id=1754057429667455765261847043826359020916385214064342069332446108&_notify_domain=www.dropbox.com&dl=1' --output-document 'rootfs.tar.bz2'
-
+				wget 'https://github-production-release-asset-2e65be.s3.amazonaws.com/99728451/63ba2f30-476a-11e8-9e96-4e0e4573c948?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180424%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180424T095356Z&X-Amz-Expires=300&X-Amz-Signature=72866c6ea738fba1f2d10074482f899fda10e96fa838c51559ce393da6a7c66c&X-Amz-SignedHeaders=host&actor_id=18293963&response-content-disposition=attachment%3B%20filename%3Drootfs.tar.bz2&response-content-type=application%2Foctet-stream'
+				
 				if [ $? -eq 0 ]; then
 
 					clear
