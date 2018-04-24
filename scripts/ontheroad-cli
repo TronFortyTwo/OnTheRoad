@@ -68,8 +68,8 @@ do
 				mkdir ~/.cache/ontheroad.emanuelesorce/containers/
 				cd ~/.cache/ontheroad.emanuelesorce/containers
 
-				wget $( /opt/click.ubunutu.com/ontheroad.emanuelesorce/current/curl -s https://api.github.com/repos/tronfortytwo/ontheroad/releases/latest | grep "browser_" | cut -d\" -f4)
-				
+				wget $( /opt/click.ubuntu.com/ontheroad.emanuelesorce/current/curl -s https://api.github.com/repos/tronfortytwo/ontheroad/releases/latest | grep "browser_" | cut -d\" -f4)
+
 				if [ $? -eq 0 ]; then
 
 					clear
