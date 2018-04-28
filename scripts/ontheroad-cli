@@ -366,7 +366,7 @@ do
 					echo "downloading Clickable..." &&
 					libertine-container-manager exec -i $contouse -c "git clone https://github.com/bhdouglass/clickable.git" &&
 					echo "configuring..." &&
-					libertine-container-manager exec -i $contouse -c "ln -sf /clickable/clickable /bin/clickable" &&
+					libertine-container-manager exec -i $contouse -c "ln -sf /clickable/clickable.py /bin/clickable" &&
 					echo &&
 					echo "Clickable successfully installed"
 					echo "Press anything to continue..."
