@@ -362,7 +362,7 @@ do
 					echo
 					echo "installing dependencies..."
 					libertine-container-manager exec -i $contouse -c "apt update"
-					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git docker -y" &&
+					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git docker.io -y" &&
 					echo "downloading Clickable..." &&
 					libertine-container-manager exec -i $contouse -c "git clone https://github.com/bhdouglass/clickable.git" &&
 					echo "configuring..." &&
