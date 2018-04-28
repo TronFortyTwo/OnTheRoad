@@ -327,11 +327,10 @@ do
 			echo "$contouse"
 			echo
 			echo "1) Open a bourne again shell (BASH)"
-			echo "2) Libertine launch"
-			echo "3) Set up Clickable"
-			echo "4) Update Clickable"
+			echo "2) Set up Clickable"
+			echo "3) Update Clickable"
 			echo
-			echo "5) Back"
+			echo "4) Back"
 			echo
 
 			read input2
@@ -342,11 +341,6 @@ do
 			fi
 
 			if [ "$input2" == "2" ]; then
-				clear
-				libertine-launch -i $contouse
-			fi
-
-			if [ "$input2" == "3" ]; then
 				clear
 				echo "------------"
 				echo "Clickable"
@@ -381,7 +375,7 @@ do
 				fi
 			fi
 
-			if [ "$input2" == "4" ]; then
+			if [ "$input2" == "3" ]; then
 
 				if [ ! -d /home/phablet/.cache/libertine-container/$contouse/rootfs/clickable ]; then
 					clear
