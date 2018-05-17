@@ -7,21 +7,24 @@ do
 	echo "----------------------------"
 	echo "1) Create new container"
 	echo "2) Destroy a container"
-	echo "3) Use a container"
-	echo "4) About On The Road"
-	echo "5) Help"
-	echo "6) Danger zone"
+	echo "3) Use a Vivid container"
+	echo "4) Use a Xenial container"
+	echo "5) About On The Road"
+	echo "6) Help"
+	echo "7) Danger zone"
 	echo "0) Exit"
 	echo
 
 	read input
-
+	
+	# exit
 	if [ "$input" == "0" ]; then
 		clear
 		exit
 	fi
 
-	if [ "$input" == "4" ]; then
+	# about
+	if [ "$input" == "5" ]; then
 		clear
 		echo "----------------------------"
 		echo "On The Road Development Tool"
@@ -38,6 +41,7 @@ do
 		read -n 1 -s
 	fi
 
+	# Create
 	if [ "$input" == "1" ]; then
 
 		clear
@@ -49,6 +53,7 @@ do
 		echo
 		echo "1) Ubuntu Vivid 15.04"
 		echo "2) Ubuntu Xenial 16.04"
+		echo
 
 		read distro
 
@@ -202,8 +207,8 @@ do
 				echo "Create a new Xenial container"
 				echo
 				echo "Download is approximately of ~90Mb"
-                echo "The downloaded image is an already debootstrapped Xenial container ready to be installed"
-                echo "The download is required only once, after you'll be able to quickly setup as many Xenial containers as you want offline"
+				echo "The downloaded image is an already debootstrapped Xenial container ready to be installed"
+				echo "The download is required only once, after you'll be able to quickly setup as many Xenial containers as you want offline"
 				echo "Note that, while vivid container can be used without sudo, Xenial containers need sudo because they not rely on Libertine"
 				echo
 				echo "press 'i' to download"
@@ -272,7 +277,7 @@ do
                     cp -v ~/.cache/ontheroad.emanuelesorce/containers/xenial.tar.bz2 ~/.local/share/ontheroad.emanuelesorce
                     bzip2 -d  ~/.local/share/ontheroad.emanuelesorce/xenial.tar.bz2
                     tar xvf ~/.local/share/ontheroad.emanuelesorce/xenial.tar -C ~/.local/share/ontheroad.emanuelesorce
-					mv -r ~/.local/share/ontheroad.emanuelesorce/xenial0 ~/.local/share/ontheroad.emanuelesorce/"$newname"
+					mv ~/.local/share/ontheroad.emanuelesorce/xenial0 ~/.local/share/ontheroad.emanuelesorce/"$newname"
                     rm ~/.local/share/ontheroad.emanuelesorce/xenial.tar
 					if [ -d "/home/phablet/.local/share/ontheroad.emanuelesorce/$newname" ]; then
 						clear
@@ -294,7 +299,8 @@ do
 		fi
 	fi
 
-	if [ "$input" == "5" ]; then
+	# Manual
+	if [ "$input" == "6" ]; then
 		clear
 		echo "On The Road Manual"
 		echo "------------------"
@@ -309,7 +315,8 @@ do
 		read -n 1 -s
 	fi
 
-	if [ "$input" == "6" ]; then
+	# Danger zone
+	if [ "$input" == "7" ]; then
 		clear
 		echo "DANGER ZONE"
 		echo "-----------"
@@ -357,69 +364,241 @@ do
 					echo "Resetting, this could take a while..."
 					echo "Log:"
 					echo
-					sudo rm -r ~/.cache/libertine-container
+					sudo rm -rf ~/.cache/libertine-container
 					sudo rm ~/.local/share/libertine/ContainersConfig.json
+					sudo rm -rf ~/.local/share/ontheroad.emanuelesorce/
 					touch ~/.local/share/libertine/ContainersConfig.json
 				fi
 			fi
 		fi
 	fi
 
+	# Destroy
 	if [ "$input" == "2" ]; then
 		clear
 		echo "-------------------"
 		echo "Destroy a container"
 		echo
-		echo "What container you want to destroy?"
-		echo "Container list:"
-		containerlist=$(libertine-container-manager list)
+		echo "What type of container you want to destroy?"
+		echo "1) Ubuntu Vivid (15.04)"
+		echo "2) Ubuntu Xenial (16.04)"
 		echo
-		echo "$containerlist"
+		echo "3) Back"
 		echo
+		read typetodestroy
 
-		read destroycontainer
-
-		if [ -d "/home/phablet/.cache/libertine-container/$destroycontainer" ]; then
+		if [ "$typetodestroy" == "1" ]; then
 			clear
-			echo "-------------"
-			echo "Destroying..."
+			echo "-------------------------"
+			echo "Destroy a Vivid container"
 			echo
-			libertine-container-manager destroy -i $destroycontainer
-			if [ ! -d "/home/phablet/.cache/libertine-container/$destroycontainer" ]; then
+			echo "What container you want to destroy?"
+			echo "Container list:"
+			containerlist=$(libertine-container-manager list)
+			echo
+			echo "$containerlist"
+			echo
+
+			read destroycontainer
+
+			if [ -d "/home/phablet/.cache/libertine-container/$destroycontainer" ]; then
 				clear
-				echo "--------------------------------"
-				echo "Container successfully destroyed"
+				echo "-------------"
+				echo "Destroying..."
 				echo
-				echo "Press something to continue..."
-				read -n 1 -s
+				libertine-container-manager destroy -i $destroycontainer
+				if [ ! -d "/home/phablet/.cache/libertine-container/$destroycontainer" ]; then
+					clear
+					echo "--------------------------------"
+					echo "Container successfully destroyed"
+					echo
+					echo "Press something to continue..."
+					read -n 1 -s
+				else
+					clear
+					echo "------------------------"
+					echo "Cannot destroy container"
+					echo
+					echo "Press something to continue..."
+					read -n 1 -s
+				fi
 			else
 				clear
-				echo "------------------------"
-				echo "Cannot destroy container"
+				echo "------------------------------------"
+				echo "There is no container with that name"
 				echo
 				echo "Press something to continue..."
 				read -n 1 -s
 			fi
-		else
+		fi
+		if [ "$typetodestroy" == "2" ]; then
 			clear
-			echo "------------------------------------"
-			echo "There is no container with that name"
+            echo "-------------------------"
+            echo "Destroy a Xenial container"
+            echo
+            echo "What container you want to destroy?"
+            echo "Container list:"
 			echo
-			echo "Press something to continue..."
-			read -n 1 -s
+			if [ ! -d ~/.local/share/ontheroad.emanuelesorce ]; then
+            	mkdir ~/.local/share/ontheroad.emanuelesorce
+        	fi
+        	ls ~/.local/share/ontheroad.emanuelesorce
+            echo
+
+            read todestroy
+
+			if [ ! -d ~/.local/share/ontheroad.emanuelesorce/"$todestroy" ]; then
+				clear
+				echo "-----------------"
+				echo "Destroy container"
+				echo
+				echo "there is no container with that name."
+				echo
+				echo "Press something to continue"
+				read -n 1 -s
+			else
+				clear
+				echo "-------------"
+				echo "Destroying..."
+				echo
+				echo "This may take a while and you may be asked for your password"
+				echo
+				echo "log:"
+				echo
+				sudo rm -rf ~/.local/share/ontheroad.emanuelesorce/"$todestroy"
+
+				echo
+				echo "-------------------"
+				echo "Container destroyed"
+				echo
+				echo "Press something to continue"
+				read -n 1 -s
+			fi
 		fi
 	fi
 
+	# USE A XENIAL CONTAINER
+	if [ "$input" == "4" ]; then
+		clear
+		echo "----------------------"
+		echo "Use a Xenial container"
+		echo
+		echo "What container do you want to use?"
+		echo
+		if [ ! -d ~/.local/share/ontheroad.emanuelesorce ]; then
+			mkdir ~/.local/share/ontheroad.emanuelesorce
+		fi
+		ls ~/.local/share/ontheroad.emanuelesorce
+		echo "$containerlist"
+		echo
+
+		read contouse
+
+		if [ ! -d "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" ]; then
+			clear
+			echo "-----------------------------"
+			echo "That container doesn't exist!"
+			echo
+			echo "Press something to continue..."
+			read -n 1 -s
+		else
+			clear
+			echo "------------------------"
+			echo "$contouse"
+			echo
+			echo "1) Open a BASH shell"
+			echo
+			echo "2) Set up Clickable"
+			echo "3) Update Clickable"
+			echo
+			echo "4) Back"
+			echo
+
+			read input2
+
+			if [ "$input2" == "1" ]; then
+				clear
+				echo "----------------------"
+				echo "Entering the container"
+				echo "You may be asked for your password"
+				sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse"
+			fi
+			if [ "$input2" == "2" ]; then
+				clear
+				echo "------------"
+                echo "Clickable"
+                echo
+                echo "Clickable, the wonderful tool to develop apps for Ubuntu Touch"
+                echo "Remember to use --container-mode inside the container"
+                echo
+                echo "Press i to install, anyhting else to abort"
+                echo
+
+                read input3
+
+                if [ "$input3" == "i" ]; then
+                    clear
+                    echo "--------------------"
+                    echo "Installing Clickable"
+					echo "You may be asked for your password."
+                    echo
+                    echo "log:"
+                    echo
+                    echo "installing dependencies..."
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" apt-get update
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" apt-get install cookiecutter git -y
+					echo "downloading Clickable..."
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" git clone https://github.com/bhdouglass/clickable.git
+                    echo "configuring..."
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" ln -sf /clickable/clickable.py /bin/clickable &&
+                    echo
+                    echo "Clickable installed"
+                    echo "Press anything to continue..."
+
+                    read input4
+				fi
+			fi
+			if [ "$input2" == "3" ]; then
+
+                if [ ! -d ~/.local/share/ontheroad.emanuelesorce/$contouse/clickable ]; then
+                    clear
+                    echo "-----------"
+                    echo "Clickable"
+                    echo
+                    echo "Can't update Clickable, it is not installed. Install it before"
+					echo "press something to continue"
+                    read i
+                else
+                    clear
+                    echo "------------------"
+                    echo "Updating Clickable"
+                    echo
+                    echo "log:"
+                    echo
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" git -C /clickable/ pull
+
+					echo
+                    echo "-----------"
+                    echo "Updating process completed."
+                    echo "press something to continue..."
+
+                    read i
+                fi
+            fi
+		fi
+	fi
+
+	# USE A VIVID CONTAINER
 	if [ "$input" == "3" ]; then
 		clear
-		echo "---------------"
-		echo "Use a container"
+		echo "---------------------"
+		echo "Use a Vivid container"
 		echo
 		echo "What container you want to use?"
 		echo "container list:"
 		echo
 		containerlist=$(libertine-container-manager list)
-        	echo "$containerlist"
+		echo "$containerlist"
 		echo
 
 		read contouse
@@ -471,7 +650,7 @@ do
 					echo "log:"
 					echo
 					echo "installing dependencies..."
-					libertine-container-manager exec -i $contouse -c "apt update"
+					libertine-container-manager exec -i $contouse -c "apt update" &&
 					libertine-container-manager exec -i $contouse -c "apt install cookiecutter git docker.io -y" &&
 					echo "downloading Clickable..." &&
 					libertine-container-manager exec -i $contouse -c "git clone https://github.com/bhdouglass/clickable.git" &&
