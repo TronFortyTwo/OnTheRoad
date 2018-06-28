@@ -63,7 +63,7 @@ do
 
 				clear
 				echo "--------------------------"
-				echo "Create new vivid container"
+				echo "Create new Vivid container"
 				echo
 				echo "Vivid container not downloaded"
 				echo "Download is approximately of ~170Mb"
@@ -113,7 +113,7 @@ do
 			else
 				clear
 				echo "----------------------------"
-				echo "Create a new vivid container"
+				echo "Create a new Vivid container"
 				echo
 				echo "Insert a name for the new container:"
 				echo "Name must be of form ([a-z0-9][a-z0-9+.-]+)."
@@ -209,7 +209,7 @@ do
 				echo "Download is approximately of ~100Mb"
 				echo "The downloaded image is an already debootstrapped Xenial container ready to be installed"
 				echo "The download is required only once, after you'll be able to quickly setup as many Xenial containers as you want offline"
-				echo "Note that, while vivid container can be used without sudo, Xenial containers need sudo because they not rely on Libertine"
+				echo "Note that, while Vivid container can be used without sudo, Xenial containers need sudo because they not rely on Libertine"
 				echo
 				echo "press 'i' to download"
 
