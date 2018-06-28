@@ -206,7 +206,7 @@ do
 				echo "-----------------------------"
 				echo "Create a new Xenial container"
 				echo
-				echo "Download is approximately of ~100Mb"
+				echo "Download is approximately of ~370Mb"
 				echo "The downloaded image is an already debootstrapped Xenial container ready to be installed"
 				echo "The download is required only once, after you'll be able to quickly setup as many Xenial containers as you want offline"
 				echo "Note that, while Vivid container can be used without sudo, Xenial containers need sudo because they not rely on Libertine"
