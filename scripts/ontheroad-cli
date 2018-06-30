@@ -547,7 +547,7 @@ do
                     sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" apt-get update
                     sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" apt-get install cookiecutter git -y
 					echo "downloading Clickable..."
-                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" git clone https://github.com/bhdouglass/clickable.git
+                    sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" git clone git://github.com/bhdouglass/clickable.git
                     echo "configuring..."
                     sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse" ln -sf /clickable/clickable.py /bin/clickable &&
                     echo
