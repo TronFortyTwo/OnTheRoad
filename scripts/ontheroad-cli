@@ -520,6 +520,11 @@ do
 				echo "----------------------"
 				echo "Entering the container"
 				echo "You may be asked for your password"
+
+				sudo mount --bind /proc "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse/proc"
+				sudo mount --bind /dev "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse/dev"
+				sudo mount --bind /sys "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse/sys"
+
 				sudo chroot "/home/phablet/.local/share/ontheroad.emanuelesorce/$contouse"
 			fi
 			if [ "$input2" == "2" ]; then
